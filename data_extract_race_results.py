@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import re
 import datetime
 import numpy as np
+import time
 
 def remove_duplicates_from_col(df, colname):
     if list(df[colname])[0][0:int(len(list(df[colname])[0]) / 2)] == list(df[colname])[0][int(len(list(df[colname])[0]) / 2):]:
@@ -14,13 +15,14 @@ data_practices = []
 data_qualifying = []
 data_races = []
 for year in [str(n) for n in [2022, 2021, 2020, 2019]]:
-    if year < '2022':
+    if year < '2021':
         url = "https://www.bbc.com/sport/formula1/"+year+"/results"
         page = requests.get(url)
         soup = BeautifulSoup(page.text)
         list_of_races = [e.contents[0].text for e in soup.find_all('button') if e.contents[0].text != '']
         list_of_races.reverse()
         list_of_grand_prix_dates = [e[e.index( str([int(i) for i in e if i.isdigit() ][0]) ) : ] for e in list_of_races]
+        list_of_grand_prix_dates = [gpd.split("Grand Prix")[-1] if "Grand Prix" in gpd else gpd for gpd in list_of_grand_prix_dates]
         list_of_grand_prix = [ e[ : e.index( str([int(i) for i in e if i.isdigit() ][0]) ) ].split(",")[0] for e in list_of_races]
 
         print(year)
@@ -32,45 +34,129 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019]]:
                 url = "https://www.bbc.com/sport/formula1/2021/"+grand_prix_url_name+"/results/" + results_type
                 if results_type == "practice":
                     df_gp_loading = pd.read_html(url)
-                    assert len(df_gp_loading) == 3
-                    for p in range(3):
-                        df_gp_loading[p] = df_gp_loading[p].loc[ df_gp_loading[p]['Rank'].astype(str).str.isdigit(), ["Rank", "Driver", "Team", "Fastest Lap", "Laps"]]
-                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Rank")
-                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Laps")
-                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Fastest Lap")
-                        df_gp_loading[p]["Driver"] = [i[0:-3] for i in list(df_gp_loading[p]["Driver"])]
-                        df_gp_loading[p]["results_type"] = "practice"
-                        df_gp_loading[p]["practice_number"] = 3-p
-                        if 3-p == 3:
-                            #Third Practice 1 day before
-                            practice_date = grand_prix_date - datetime.timedelta(days=1)
+                    time.sleep(0.2)
+                    n_practices = len(df_gp_loading)
+                    assert n_practices <= 3
+                    for p in range(n_practices):
+                        if all([r.isdigit() == False for r in df_gp_loading[p]['Rank']]):
+                            df_gp_loading[p] = pd.DataFrame(columns=["Rank", "Driver", "Team", "Fastest Lap", "Laps", "results_type", "practice_number", "date", "time_diff_s", "time_diff_ms"])
+                            print("")
                         else:
-                            #First and Second Practices 2 days before
-                            practice_date = grand_prix_date - datetime.timedelta(days=2)
-                        df_gp_loading[p]["date"] = practice_date
-                        best_time = df_gp_loading[p].loc[0,"Fastest Lap"]
-                        timediffs = [pd.to_datetime("2000-01-01 12:"+t) - pd.to_datetime("2000-01-01 12:"+best_time) for t in list(df_gp_loading[p]["Fastest Lap"]) ]
-                        df_gp_loading[p]["time_diff_s"] = [t.seconds for t in timediffs]
-                        df_gp_loading[p]["time_diff_ms"] = [int(t.delta/1000000) for t in timediffs]
+                            df_gp_loading[p] = df_gp_loading[p].loc[ df_gp_loading[p]['Rank'].astype(str).str.isdigit(), ["Rank", "Driver", "Team", "Fastest Lap", "Laps"]]
+                            df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Rank")
+                            df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Laps")
+                            df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Fastest Lap")
+                            df_gp_loading[p]["Driver"] = [i[0:-3] for i in list(df_gp_loading[p]["Driver"])]
+                            df_gp_loading[p]["results_type"] = results_type
+                            df_gp_loading[p]["practice_number"] = n_practices-p
+                            if n_practices-p == n_practices:
+                                #Third Practice 1 day before
+                                practice_date = grand_prix_date - datetime.timedelta(days=1)
+                            else:
+                                #First and Second Practices 2 days before
+                                practice_date = grand_prix_date - datetime.timedelta(days=2)
+                            df_gp_loading[p]["date"] = practice_date
+                            best_time = df_gp_loading[p].loc[0,"Fastest Lap"]
+                            assert len(best_time) == 8 and all([len(t) == 8 or t == "not ava" for t in list(df_gp_loading[p]["Fastest Lap"])])
+                            timediffs = [pd.to_datetime("2000-01-01 12:"+t) - pd.to_datetime("2000-01-01 12:"+best_time) if "not ava" not in t else pd.to_datetime("2000-01-01 12") - pd.to_datetime("2000-01-01 13") for t in list(df_gp_loading[p]["Fastest Lap"]) ]
+                            df_gp_loading[p]["time_diff_s"] = [t.seconds for t in timediffs]
+                            df_gp_loading[p]["time_diff_ms"] = [int(t.delta/1000000) for t in timediffs]
+                            # print("")
 
-                    df_gp_loading = pd.concat([df_gp_loading[0], df_gp_loading[1], df_gp_loading[2]], axis=0)
+                    if n_practices == 3:
+                        df_gp_loading = pd.concat([df_gp_loading[0], df_gp_loading[1], df_gp_loading[2]], axis=0)
+                    elif n_practices == 2:
+                        df_gp_loading = pd.concat([df_gp_loading[0], df_gp_loading[1]], axis=0)
+                    elif n_practices == 1:
+                        df_gp_loading = pd.concat([df_gp_loading[0]], axis=0)
                     df_gp_loading["Rank"] = df_gp_loading["Rank"].astype(int)
                     df_gp_loading["Laps"] = df_gp_loading["Laps"].astype(int)
                     data_practices.append(df_gp_loading)
 
                 elif results_type == "qualifying":
                     df_gp_loading = pd.read_html(url)
-                    assert len(df_gp_loading) == 1
+                    n_quals = len(df_gp_loading)
+                    assert n_quals <= 2
                     for p in range(1):
                         df_gp_loading[p] = df_gp_loading[p].loc[df_gp_loading[p]['Rank'].astype(str).str.isdigit(), ["Rank", "Driver", "Team","Qualifying 1Q1","Qualifying 2Q2","Qualifying 3Q3","Time"]]
                         df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Rank")
                         df_gp_loading[p]["Driver"] = [i[0:-3] for i in list(df_gp_loading[p]["Driver"])]
-                        df_gp_loading[p]["IsBestQ1"] = np.where("countdownfastest" in df_gp_loading[p]["Qualifying 1Q1"], 1, 0)
+                        df_gp_loading[p]["results_type"] = results_type
+                        df_gp_loading[p]["IsBestQ1"] = np.where(df_gp_loading[p]["Qualifying 1Q1"].str.contains("countdownfastest"), 1, 0)
+                        df_gp_loading[p]["Qualifying 1Q1"] = [t.replace("countdownfastest lap ", "") for t in list(df_gp_loading[p]["Qualifying 1Q1"])]
+                        df_gp_loading[p]["IsBestQ2"] = np.where(df_gp_loading[p]["Qualifying 2Q2"].str.contains("countdownfastest"), 1, 0)
+                        df_gp_loading[p]["Qualifying 2Q2"] = [t.replace("countdownfastest lap ", "") for t in list(df_gp_loading[p]["Qualifying 2Q2"])]
+                        df_gp_loading[p]["IsBestQ3"] = np.where(df_gp_loading[p]["Qualifying 3Q3"].str.contains("countdownfastest"), 1, 0)
+                        df_gp_loading[p]["Qualifying 3Q3"] = [t.replace("countdownfastest lap ", "") for t in list(df_gp_loading[p]["Qualifying 3Q3"])]
+                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Qualifying 1Q1")
+                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Qualifying 2Q2")
+                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Qualifying 3Q3")
+                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Time")
+                        df_gp_loading[p]["BestTime"] = df_gp_loading[p][["Qualifying 1Q1", "Qualifying 2Q2", "Qualifying 3Q3"]].min(axis=1)
+                        df_gp_loading[p]["RankQ1"] = df_gp_loading[p]['Qualifying 1Q1'].rank(ascending=True).astype(int)
+                        df_gp_loading[p]["RankQ2"] = np.where ( df_gp_loading[p]["Qualifying 2Q2"].str.contains("not"), -1 ,df_gp_loading[p]['Qualifying 2Q2'].rank(ascending=True)).astype(int)
+                        df_gp_loading[p]["RankQ3"] = np.where ( df_gp_loading[p]["Qualifying 3Q3"].str.contains("not"), -1 ,df_gp_loading[p]['Qualifying 3Q3'].rank(ascending=True)).astype(int)
+                        df_gp_loading[p]["AvgQRank"] = (df_gp_loading[p]["RankQ1"] + np.where ( df_gp_loading[p]["Qualifying 2Q2"].str.contains("not"), 0 ,1)*df_gp_loading[p]["RankQ2"]  + np.where ( df_gp_loading[p]["Qualifying 3Q3"].str.contains("not"), 0 ,1)*df_gp_loading[p]["RankQ3"]) / ( 1 + np.where ( df_gp_loading[p]["Qualifying 2Q2"].str.contains("not"), 0 ,1) + np.where ( df_gp_loading[p]["Qualifying 3Q3"].str.contains("not"), 0 ,1) )
 
-                    print("db")
+                        best_time = df_gp_loading[p].loc[0,"BestTime"]
+                        timediffs = [pd.to_datetime("2000-01-01 12:"+t) - pd.to_datetime("2000-01-01 12:"+best_time) if "not ava" not in t else pd.to_datetime("2000-01-01 12") - pd.to_datetime("2000-01-01 13") for t in list(df_gp_loading[p]["BestTime"]) ]
+                        df_gp_loading[p]["time_diff_s"] = [t.seconds for t in timediffs]
+                        df_gp_loading[p]["time_diff_ms"] = [int(t.delta/1000000) for t in timediffs]
+                        qualifying_date = grand_prix_date - datetime.timedelta(days=1)
+                        df_gp_loading[p]["date"] = qualifying_date
+
+
+                    if n_quals == 2:
+                        df_gp_loading_sprint = df_gp_loading[1]
+                        df_gp_loading = df_gp_loading[0]
+                        df_gp_loading_sprint = remove_duplicates_from_col(df_gp_loading_sprint, "Rank")
+                        df_gp_loading_sprint["Driver"] = [i[0:-3] for i in list(df_gp_loading_sprint["Driver"])]
+                        df_gp_loading_sprint = df_gp_loading_sprint.loc[:19,["Rank", "Driver"]]
+                        df_gp_loading_sprint.rename(columns={"Rank": "RankSprint"}, inplace=True)
+                        df_gp_loading = pd.merge(df_gp_loading, df_gp_loading_sprint, on="Driver")
+                        df_gp_loading["RankSprint"] = [i if i[0].isdigit() else '-1' for i in df_gp_loading["RankSprint"] ]
+                        df_gp_loading["RankSprint"] = df_gp_loading["RankSprint"].astype(int)
+                    else:
+                        df_gp_loading = df_gp_loading[0]
+                        df_gp_loading["RankSprint"] = -1
+
+                    data_qualifying.append(df_gp_loading)
+
+                elif results_type == "race":
+                    df_gp_loading = pd.read_html(url)
+                    assert len(df_gp_loading) == 1
+                    for p in range(1):
+                        df_gp_loading[p] = df_gp_loading[p].loc[
+                            df_gp_loading[p]['Rank'].astype(str).str.isdigit(), ["Rank", "Driver", "Team",
+                                                                                 "Grid", "Pits",
+                                                                                 "Fastest Lap", "Race Time", "PointsPts"]]
+                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Rank")
+                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "PointsPts")
+                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Grid")
+                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Pits")
+                        df_gp_loading[p]["Driver"] = [i[0:-3] for i in list(df_gp_loading[p]["Driver"])]
+                        df_gp_loading[p]["results_type"] = results_type
+                        df_gp_loading[p]["IsFastestLap"] = np.where(df_gp_loading[p]["Fastest Lap"].str.contains("countdownfastest"), 1, 0)
+                        df_gp_loading[p]["Fastest Lap"] = [t.replace("countdownfastest overall lap ", "") for t in list(df_gp_loading[p]["Fastest Lap"])]
+                        df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Fastest Lap")
+                        df_gp_loading[p]["IsPodium"] = np.where(df_gp_loading[p]["Rank"].astype(int) <= 3, 1, 0)
+                        df_gp_loading[p]["Race Time"] = np.where(df_gp_loading[p]["Race Time"].str.contains("behind+"), [t.split("behind+")[0] + " " + "behind+" for t in df_gp_loading[p]["Race Time"]], df_gp_loading[p]["Race Time"])
+                        df_gp_loading[p].loc[0,"Race Time"] = df_gp_loading[p].loc[0,"Race Time"][0:int(len(df_gp_loading[p].loc[0,"Race Time"])/2)]
+                        df_gp_loading[p]["RaceTimeDiff_s"] = 1
+                        best_time = df_gp_loading[p].loc[0,"Race Time"]
+                        timediffs = pd.Series(np.where(df_gp_loading[p]["Race Time"].str.contains("behind +"), [t.split("behind+")[0]  for t in df_gp_loading[p]["Race Time"]], df_gp_loading[p]["Race Time"]))
+                        timediffs.loc[0] = '0'
+                        timediffs_s = [-1 if "no time" in t else  int(t) for t in [ '100' if 'behind' in t else t for t in [str(int(t.split(".")[0].split(":")[1]) + int(t.split(".")[0].split(":")[0])*60) if ":" in t else t.split(".")[0] for t in timediffs]]]
+                        df_gp_loading[p]["RaceTimeDiff_s"] = timediffs_s
+                        df_gp_loading[p]["date"] = grand_prix_date
+                        df_gp_loading[p]["Rank"] = df_gp_loading[p]["Rank"].astype(int)
+                    df_gp_loading = df_gp_loading[0]
+                    data_races.append(df_gp_loading)
+
+                        # print("db")
 
 
                 print("Sucessfully extracted <" + results_type + "> data from the <" + grand_prix + "> of <" + year + ">.")
-                print("db")
+            # print("db")
 
 print("END")
