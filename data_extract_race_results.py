@@ -194,13 +194,16 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
 
 
 df_practices = pd.concat(data_practices)
-df_practices.reset_index(inplace=True)
+df_practices.reset_index(inplace=True, drop=True)
 df_practices.to_feather(r"C:/F1-Forecast/DWH/fact_practices.ftr")
+
 df_qualifying = pd.concat(data_qualifying)
-df_qualifying.reset_index(inplace=True)
-df_practices.to_feather(r"C:/F1-Forecast/DWH/fact_qualifying.ftr")
+df_qualifying["Rank"] = df_qualifying["Rank"].astype(int)
+df_qualifying.reset_index(inplace=True, drop=True)
+df_qualifying.to_feather(r"C:/F1-Forecast/DWH/fact_qualifying.ftr")
+
 df_races = pd.concat(data_races)
-df_races.reset_index(inplace=True)
-df_practices.to_feather(r"C:/F1-Forecast/DWH/fact_races.ftr")
+df_races.reset_index(inplace=True, drop=True)
+df_races.to_feather(r"C:/F1-Forecast/DWH/fact_races.ftr")
 
 print("END")
