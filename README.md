@@ -1,4 +1,4 @@
-# f1-forecast - Using ML to Generate Grand Prix Predictions for all the F1 Races
+# Using ML to Generate Grand Prix Predictions for the 2022 F1 Races
 
 This Repo contains my take at attempting to predict the race winners and podiums live for the F1 season of 2022 as a hobby project. 
 * data_extract_race_results.py - This script is responsible for data scrapping race results data and generating /DWH schema-like tables of practice, qualifying and race results.
