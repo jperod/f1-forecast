@@ -1,5 +1,7 @@
 # f1-forecast - Using ML to Generate Grand Prix Predictions for all the F1 Races
 
+This Repo contains my take at attempting to predict the race winners and podiums live for the F1 season of 2022 as a hobby project. 
+
 ## First Testing Results: 19/03/2022 - Training from 2018+ and Testing on the 2021 Season
 ### Predicting Race Winner (Top 1) and Ranking:
 
