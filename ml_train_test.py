@@ -13,21 +13,25 @@ from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, precision_s
 pd.set_option("display.max_columns", 10)
 
 ################# PARAMETERS ###################
-prediction_feature = "Future_Winner"
+# prediction_feature = "Future_Winner"
+# prediction_feature = "Future_Podium"
+prediction_feature = "Future_Points"
 top_n = 10
 time_cross_validation_test_date_start = pd.to_datetime('2021-01-01')
 ################################################
 
+print("Predicting : " + prediction_feature)
 df_ml = pd.read_feather(r"C:\F1-Forecast\DWH/ml_dataset_race_predictions")
 
 #Prediction Targets
 df_ml["Future_Winner"] = np.where(df_ml["Future_Rank"] == 1, 1, 0)
 df_ml["Future_Podium"] = np.where(df_ml["Future_Rank"] <= 3, 1, 0)
+df_ml["Future_Points"] = np.where(df_ml["Future_Rank"] <= 10, 1, 0)
 
 #Model configuration
 automl_clf = AutoML()
 automl_settings = {
-    "time_budget": 30,  # in seconds
+    "time_budget": 60,  # in seconds
     "metric": 'roc_auc',
     "task": 'classification',
     "verbose": 0
@@ -61,16 +65,22 @@ for i, race_date in enumerate(race_dates):
         list_y_test.extend(list(y_test))
 
         results_here = x_test.copy()[["Driver","Team","track","season"]]
-        results_here["preds"] = y_pred
-        results_here["win_prob"] = [int(100*i/np.sum(y_pred)) for i in y_pred]
+        results_here["score"] = y_pred
+        if prediction_feature == "Future_Winner":
+            n_chances = 1
+        if prediction_feature == "Future_Podium":
+            n_chances = 3
+        if prediction_feature == "Future_Points":
+            n_chances = 10
+        results_here[prediction_feature.split("_")[-1]+"_prob"] = [min(int(100*n_chances*i/np.sum(y_pred)), 100) for i in y_pred]
         results_here["Future_Rank"] = df_test["Future_Rank"]
-        results_here.sort_values(by="preds", ascending=False, inplace=True)
+        results_here.sort_values(by="score", ascending=False, inplace=True)
         results_here.reset_index(drop=True, inplace=True)
         results_here.index = np.arange(1, len(results_here) + 1)
         results_here["RankAcc"] = np.where(results_here["Future_Rank"] <= results_here.index, 1, 0)
         print("\n########### PREDICTING " + list(x_test["track"])[0] + " - " + str(list(x_test["season"])[0]) + " ###########" )
         print("### Predictions Top "+str(top_n)+" - ["+prediction_feature+"] - ###")
-        print(results_here[["Driver", "Team", "preds", "win_prob", "Future_Rank", "RankAcc"]].head(top_n))
+        print(results_here[["Driver", "Team", "score", prediction_feature.split("_")[-1]+"_prob", "Future_Rank"]].head(top_n))
 
         y_pred_binary = [1 if np.argmax(y_pred) == i else 0 for i in range(len(y_pred))]
         list_y_pred_binary.extend(y_pred_binary)
