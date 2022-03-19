@@ -27,7 +27,7 @@ df_ml["Future_Podium"] = np.where(df_ml["Future_Rank"] <= 3, 1, 0)
 #Model configuration
 automl_clf = AutoML()
 automl_settings = {
-    "time_budget": 5,  # in seconds
+    "time_budget": 30,  # in seconds
     "metric": 'roc_auc',
     "task": 'classification',
     "verbose": 0

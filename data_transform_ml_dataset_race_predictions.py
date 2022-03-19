@@ -61,9 +61,11 @@ for i, date in enumerate(valid_race_dates):
         #Last Race
         fact_races_now = fact_races_loading[fact_races_loading["date"] < date]
         fact_races_now = fact_races_now[fact_races_now["date"] == fact_races_now["date"].max()]
-        fact_races_now.drop(columns=["date", "results_type", "Qualifying 1Q1", "Qualifying 2Q2", "Qualifying 3Q3", "Time", "BestTime"], inplace=True)
+        fact_races_now.drop(columns=["Rank", "results_type", "Fastest Lap", "Race Time", "date", "track", "season"], inplace=True)
+        df_loading = pd.merge(df_loading, fact_races_now, how="left", on=["Driver", "Team"])
 
-        assert df_loading.isnull().values[df_loading.isnull().values == True].size / df_loading.size < 0.10
+        #
+        assert df_loading.isnull().values[df_loading.isnull().values == True].size / df_loading.size < 0.25
 
         data_ml.append(df_loading)
         # print("db")
