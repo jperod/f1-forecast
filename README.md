@@ -38,7 +38,7 @@ Testing Evaluation Measures:
 * Future_Points-F1-Score[22] = 0.17 (F1-Score of predicting the points of the race)
 
 # 2022 Season Predictions
-## Date: 19/03/2022 - Prediction 1 - 2022 Bahrain Grand Prix
+## [Date: 19/03/2022] - Prediction 1 - 2022 Bahrain Grand Prix
 
 Rank | Driver |  Team | Track | Season | Win Probability (%) | Podium Probability (%) | Points Probability (%) | Final Score (0-1) 
  --- | --- | --- | --- | --- | --- | --- | --- | --- | 
