@@ -37,3 +37,7 @@ Testing Evaluation Measures:
 * Future_Points-ROC-AUC[22] = 0.88 (Precision of predicting the points of the race)
 * Future_Points-F1-Score[22] = 0.17 (Precision of predicting the points of the race)
 
+# 2022 Season Predictions
+## Prediction 1 - 2022 Bahrain Grand Prix
+
+
