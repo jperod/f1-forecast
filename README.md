@@ -1,4 +1,4 @@
-# f1-forecast - Using ML to Generate Weekly Predictions for F1 Races
+# f1-forecast - Using ML to Generate Grand Prix Predictions for all the F1 Races
 
 ## First Testing Results: 19/03/2022 - Training from 2018+ and Testing on the 2021 Season
 ### Predicting Race Winner (Top 1) and Ranking:
