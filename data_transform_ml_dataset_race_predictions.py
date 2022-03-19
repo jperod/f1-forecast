@@ -19,7 +19,7 @@ valid_race_dates.sort()
 cat_seasons = list(set([pd.to_datetime(d).year for d in valid_race_dates]))
 cat_drivers = list(set(list(fact_practices["Driver"].unique()) + list(fact_qualifying["Driver"].unique()) + list(fact_races["Driver"].unique())))
 cat_tracks = list(set(list(fact_practices["track"].unique()) + list(fact_qualifying["track"].unique()) + list(fact_races["track"].unique())))
-cat_teams = list(set(list(fact_practices["Team"].unique()) + list(fact_qualifying["Team"].unique()) + list(fact_races["Team"].unique())))
+cat_teams = [t for t in list(set(list(fact_practices["Team"].unique()) + list(fact_qualifying["Team"].unique()) + list(fact_races["Team"].unique()))) if t is not None]
 
 # te
 # fact_practices = fact_practices[fact_practices["Driver"] == "Max Verstappen"]
@@ -30,14 +30,14 @@ data_ml = []
 for i, date in enumerate(valid_race_dates):
 
     fact_races_loading = fact_races[fact_races["date"] <= date]
-    season = list(fact_races_loading["season"].unique())[0]
-    track = list(fact_races_loading["track"].unique())[0]
     fact_practices_loading = fact_practices[fact_practices["date"] <= date]
     fact_qualifying_loading = fact_qualifying[fact_qualifying["date"] <= date]
 
     print("Transforming: " + str(date))
     #Predicting goal
     fact_races_now = fact_races_loading[fact_races_loading["date"] == date]
+    season = list(fact_races_now["season"].unique())[0]
+    track = list(fact_races_now["track"].unique())[0]
     df_loading = fact_races_now[["Rank", "PointsPts", "Driver", "Team", "date", "track", "season"]]
     df_loading.rename(inplace=True, columns={"Rank": "Future_Rank", "PointsPts": "Future_Points"})
 
@@ -58,12 +58,22 @@ for i, date in enumerate(valid_race_dates):
     fact_qualifying_now.drop(columns=["date", "results_type", "Qualifying 1Q1", "Qualifying 2Q2", "Qualifying 3Q3", "Time", "BestTime"], inplace=True)
     df_loading = pd.merge(df_loading, fact_qualifying_now, how="left", on=["Driver", "Team", "track", "season"])
 
-
+    assert df_loading.isnull().values[df_loading.isnull().values == True].size / df_loading.size < 0.10
 
     data_ml.append(df_loading)
     # print("db")
 
 df_ml = pd.concat(data_ml)
+df_ml["season"] = pd.Categorical(df_ml["season"], categories=cat_seasons)
+df_ml["Driver"] = pd.Categorical(df_ml["Driver"], categories=cat_drivers)
+df_ml["track"] = pd.Categorical(df_ml["track"], categories=cat_tracks)
+df_ml["Team"] = pd.Categorical(df_ml["Team"], categories=cat_teams)
+# cat_seasons = list(set([pd.to_datetime(d).year for d in valid_race_dates]))
+# cat_drivers = list(set(list(fact_practices["Driver"].unique()) + list(fact_qualifying["Driver"].unique()) + list(fact_races["Driver"].unique())))
+# cat_tracks = list(set(list(fact_practices["track"].unique()) + list(fact_qualifying["track"].unique()) + list(fact_races["track"].unique())))
+# cat_teams = list(set(list(fact_practices["Team"].unique()) + list(fact_qualifying["Team"].unique()) + list(fact_races["Team"].unique())))
+
+
 df_ml.reset_index(drop=True, inplace=True)
 df_ml.to_feather(r"C:\F1-Forecast\DWH/ml_dataset_race_predictions")
 
