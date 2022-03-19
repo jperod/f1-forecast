@@ -13,9 +13,9 @@ from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, precision_s
 pd.set_option("display.max_columns", 10)
 
 ################# PARAMETERS ###################
-# prediction_feature = "Future_Winner"
+prediction_feature = "Future_Winner"
 # prediction_feature = "Future_Podium"
-prediction_feature = "Future_Points"
+# prediction_feature = "Future_Points"
 top_n = 10
 time_cross_validation_test_date_start = pd.to_datetime('2021-01-01')
 ################################################
@@ -45,7 +45,7 @@ list_y_test = []
 list_accurate_ranks = []
 race_cnt = 1
 for i, race_date in enumerate(race_dates):
-    if race_date >= time_cross_validation_test_date_start:
+    if race_date >= time_cross_validation_test_date_start and race_date < pd.to_datetime("2022-03-18"):
         #Train Test Split
         df_ml_here = df_ml[df_ml["date"] <= race_date]
         # df_ml_here = df_ml_here[[c for c in list(df_ml_here.columns) if "Future" not in c or c == prediction_feature]]

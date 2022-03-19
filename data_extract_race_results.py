@@ -15,9 +15,21 @@ data_practices = []
 data_qualifying = []
 data_races = []
 for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
-    if year < '2023':
-        url = "https://www.bbc.com/sport/formula1/"+year+"/results"
-        page = requests.get(url)
+    if year <= '2022':
+        url = "https://www.bbc.com/sport/formula1/" + year + "/results"
+        while True:
+            try:
+                page = requests.get(url)
+                break
+            except:
+                # wait, try again
+                time.sleep(5)
+                print("Error - can't read_html")
+                print(url)
+                # print("")
+
+
+
         soup = BeautifulSoup(page.text)
         list_of_races = [e.contents[0].text for e in soup.find_all('button') if e.contents[0].text != '']
         list_of_races.reverse()
@@ -44,7 +56,7 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
                             time.sleep(1)
                             print("Error - can't read_html")
                             print(url)
-                            print("")
+                            # print("")
 
                     # time.sleep(0.25)
                     n_practices = len(df_gp_loading)
@@ -52,7 +64,7 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
                     for p in range(n_practices):
                         if all([r.isdigit() == False for r in df_gp_loading[p]['Rank']]) or all([r == "not available-" or "Last updated" in r for r in df_gp_loading[p]['Fastest Lap']]):
                             df_gp_loading[p] = pd.DataFrame(columns=["Rank", "Driver", "Team", "Fastest Lap", "Laps", "results_type", "track", "practice_number", "date", "time_diff_s", "time_diff_ms"])
-                            print("")
+                            # print("")
                         else:
                             df_gp_loading[p] = df_gp_loading[p].loc[ df_gp_loading[p]['Rank'].astype(str).str.isdigit(), ["Rank", "Driver", "Team", "Fastest Lap", "Laps"]]
                             df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Rank")
@@ -98,7 +110,7 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
                                      df_gp_loading[p]['Qualifying 1Q1']]):
                                 df_gp_loading[p] = pd.DataFrame(
                                     columns=["Rank", "Driver", "Team","Qualifying 1Q1","Qualifying 2Q2","Qualifying 3Q3","Time", "track", "IsBestQ1", "IsBestQ2", "IsBestQ3", "BestTime", "RankQ1", "RankQ2", "RankQ3", "AvgQRank", "date", "time_diff_s", "time_diff_ms"])
-                                print("")
+                                # print("")
                             else:
                                 df_gp_loading[p] = df_gp_loading[p].loc[df_gp_loading[p]['Rank'].astype(str).str.isdigit(), ["Rank", "Driver", "Team","Qualifying 1Q1","Qualifying 2Q2","Qualifying 3Q3","Time"]]
                                 df_gp_loading[p] = remove_duplicates_from_col(df_gp_loading[p], "Rank")
@@ -155,7 +167,29 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
                                      df_gp_loading[p]["Fastest Lap"]]):
                                 df_gp_loading[p] = pd.DataFrame(
                                     columns=["Rank", "Driver", "Team", "Grid", "Pits", "Fastest Lap", "Race Time", "track", "PointsPts", "date", "results_type", "IsFastestLap", "IsPodium", "RaceTimeDiff_s", ])
-                                print("")
+                                print("This race did not happen yet: ("+grand_prix+") filling this data with <FUTURE_DATA> data tag for deployment ")
+
+                                if data_qualifying[0].shape[0] > 0:
+                                    df_future_race = data_qualifying[0]
+                                elif data_practices[0].shape[0] > 0:
+                                    df_future_race = data_practices[0]
+                                else:
+                                    print("WARNING - CAN NOT FIND INFO ON THIS FUTURE RACE!!!")
+                                    quit()
+
+                                df_future_race = df_future_race[["Driver", "Team", "track"]].drop_duplicates()
+                                df_gp_loading[p] = pd.merge(df_gp_loading[p], df_future_race, how="right")
+                                df_gp_loading[p]["date"] = grand_prix_date
+                                df_gp_loading[p]["results_type"] = results_type
+                                df_gp_loading[p]["Rank"] = -1
+                                df_gp_loading[p]["IsFastestLap"] = -1
+                                df_gp_loading[p]["IsPodium"] = -1
+                                df_gp_loading[p]["RaceTimeDiff_s"] = -1
+                                # df_gp_loading[p]["Pits"] = -1
+                                df_gp_loading[p].fillna(value="FUTURE", inplace=True)
+
+                                # print("")
+
                             else:
                             
                                 df_gp_loading[p] = df_gp_loading[p].loc[
