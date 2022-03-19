@@ -40,4 +40,25 @@ Testing Evaluation Measures:
 # 2022 Season Predictions
 ## Prediction 1 - 2022 Bahrain Grand Prix
 
-
+Rank | Driver |  Team | Track | Season | Win Probability (%) | Podium Probability (%) | Points Probability (%) | Final Score (0-1) 
+ --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+1 | Max Verstappen | Red Bull | Bahrain Grand Prix | 2022 | 22 | 23 | 80 | 0.0214
+2 | Charles Leclerc | Ferrari | Bahrain Grand Prix | 2022 | 17 | 25 | 80 | 0.0181
+3 | Carlos Sainz Jnr | Ferrari | Bahrain Grand Prix | 2022 | 7 | 23 | 80 | 0.0071
+4 | Lewis Hamilton | Mercedes | Bahrain Grand Prix | 2022 | 9 | 16 | 76 | 0.0058
+5 | Sergio Perez | Red Bull | Bahrain Grand Prix | 2022 | 5 | 16 | 76 | 0.0033
+6 | George Russell | Mercedes | Bahrain Grand Prix | 2022 | 4 | 14 | 70 | 0.0021
+7 | Pierre Gasly | AlphaTauri | Bahrain Grand Prix | 2022 | 2 | 13 | 68 | 0.0012
+8 | Fernando Alonso | Alpine | Bahrain Grand Prix | 2022 | 2 | 13 | 70 | 0.0011
+9 | Esteban Ocon | Alpine | Bahrain Grand Prix | 2022 | 2 | 12 | 69 | 0.001
+10 | Valtteri Bottas | Alfa Romeo | Bahrain Grand Prix | 2022 | 2 | 13 | 56 | 0.001
+11 | Kevin Magnussen | Haas | Bahrain Grand Prix | 2022 | 2 | 13 | 55 | 0.0009
+12 | Lando Norris | McLaren | Bahrain Grand Prix | 2022 | 2 | 12 | 62 | 0.0009
+13 | Yuki Tsunoda | AlphaTauri | Bahrain Grand Prix | 2022 | 2 | 13 | 27 | 0.0004
+14 | Mick Schumacher | Haas | Bahrain Grand Prix | 2022 | 2 | 12 | 28 | 0.0004
+15 | Lance Stroll | Aston Martin | Bahrain Grand Prix | 2022 | 2 | 12 | 23 | 0.0004
+16 | Daniel Ricciardo | McLaren | Bahrain Grand Prix | 2022 | 2 | 12 | 19 | 0.0003
+17 | Nico Hulkenberg | Aston Martin | Bahrain Grand Prix | 2022 | 2 | 12 | 18 | 0.0003
+18 | Guanyu ZhouGuanyu Z | Alfa Romeo | Bahrain Grand Prix | 2022 | 2 | 12 | 14 | 0.0002
+19 | Alexander Albon | Williams | Bahrain Grand Prix | 2022 | 2 | 12 | 11 | 0.0002
+20 | Nicholas Latifi | Williams | Bahrain Grand Prix | 2022 | 2 | 12 | 6 | 0.0001
