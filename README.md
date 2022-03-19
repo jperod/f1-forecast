@@ -34,8 +34,8 @@ Testing Evaluation Measures:
 * Rank-Accuracy[22] = 0.63 (Accuracy on predicting the ranking order)
 * Future_Points-Accuracy[22] = 0.49 (Accuracy of predicting the points of the race and the non-points)
 * Future_Points-Precision[22] = 0.95 (Precision of predicting the points of the race)
-* Future_Points-ROC-AUC[22] = 0.88 (Precision of predicting the points of the race)
-* Future_Points-F1-Score[22] = 0.17 (Precision of predicting the points of the race)
+* Future_Points-ROC-AUC[22] = 0.88 (ROC-AUC of predicting the points of the race)
+* Future_Points-F1-Score[22] = 0.17 (F1-Score of predicting the points of the race)
 
 # 2022 Season Predictions
 ## Prediction 1 - 2022 Bahrain Grand Prix
