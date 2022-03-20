@@ -55,7 +55,7 @@ Predicted Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (
  --- | --- | --- | --- | --- | --- | --- | --- | --- 
 1 | Max Verstappen | Red Bull | 24 | 23 | 81 | 0.0209 | 💀 | Ranking: ❌ \Points: ❌ Podium: ❌ Winner: ❌
 2 | Charles Leclerc | Ferrari | 21 | 25 | 79 | 0.0192 | 1 | Ranking: ✔️ \Points: ✔️ Podium: ✔️ Winner: ❌
-3 | Lewis Hamilton | Mercedes | 10 | 16 | 78 | 0.006 | 3 | Ranking: ✔️🎯 Points: ✔️ Podium: ✔️
+3 | Lewis Hamilton | Mercedes | 10 | 16 | 78 | 0.006 | 3 | Ranking: 🎯 \Points: ✔️ Podium: ✔️
 4 | Carlos Sainz Jnr | Ferrari | 6 | 23 | 80 | 0.0052 | 2 | Ranking: ✔️ \Points: ✔️ Podium: ❌
 5 | Sergio Perez | Red Bull | 3 | 16 | 76 | 0.002 | 💀 | Ranking: ❌ \Points: ❌
 6 | George Russell | Mercedes |  3 | 14 | 67 | 0.0014 | 4 | Ranking: ✔️ \Points: ✔️
