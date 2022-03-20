@@ -49,18 +49,19 @@ Testing Evaluation Measures:
 * Precision (Winner) = 0/1
 * Precision (Podium) = 2/3
 * Precision (Points) = 7/10
+* Accuracy (Ranking) = 15/20
 
 Predicted Rank | Driver |  Team | Track | Season | Win Probability (%) | Podium Probability (%) | Points Probability (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-1 | Max Verstappen | Red Bull | Bahrain Grand Prix | 2022 | 24 | 23 | 81 | 0.0209 | - | Ranking: ❌ \Points: ❌ Podium: ❌ Winner: ❌
+1 | Max Verstappen | Red Bull | Bahrain Grand Prix | 2022 | 24 | 23 | 81 | 0.0209 | 💀 | Ranking: ❌ \Points: ❌ Podium: ❌ Winner: ❌
 2 | Charles Leclerc | Ferrari | Bahrain Grand Prix | 2022 | 21 | 25 | 79 | 0.0192 | 1 | Ranking: ✔️ \Points: ✔️ Podium: ✔️ Winner: ❌
 3 | Lewis Hamilton | Mercedes | Bahrain Grand Prix | 2022 | 10 | 16 | 78 | 0.006 | 3 | Ranking: ✔️🎯 \Points: ✔️ Podium: ✔️
 4 | Carlos Sainz Jnr | Ferrari | Bahrain Grand Prix | 2022 | 6 | 23 | 80 | 0.0052 | 2 | Ranking: ✔️ \Points: ✔️ Podium: ❌
-5 | Sergio Perez | Red Bull | Bahrain Grand Prix | 2022 | 3 | 16 | 76 | 0.002 | - | Ranking: ❌ \Points: ❌
+5 | Sergio Perez | Red Bull | Bahrain Grand Prix | 2022 | 3 | 16 | 76 | 0.002 | 💀 | Ranking: ❌ \Points: ❌
 6 | George Russell | Mercedes | Bahrain Grand Prix | 2022 | 3 | 14 | 67 | 0.0014 | 4 | Ranking: ✔️ \Points: ✔️
 7 | Valtteri Bottas | Alfa Romeo | Bahrain Grand Prix | 2022 | 2 | 13 | 64 | 0.0011 | 6 | Ranking: ✔️ \Points: ✔️
 8 | Fernando Alonso | Alpine | Bahrain Grand Prix | 2022 | 2 | 13 | 68 | 0.001 | 9 | Ranking: ❌ \Points: ✔️
-9 | Pierre Gasly | AlphaTauri | Bahrain Grand Prix | 2022 | 2 | 13 | 63 | 0.0008 | - | Ranking: ❌ \Points: ❌
+9 | Pierre Gasly | AlphaTauri | Bahrain Grand Prix | 2022 | 2 | 13 | 63 | 0.0008 | 💀 | Ranking: ❌ \Points: ❌
 10 | Esteban Ocon | Alpine | Bahrain Grand Prix | 2022 | 1 | 12 | 69 | 0.0008 | 7 | Ranking: ✔️ \Points: ✔️
 11 | Lando Norris | McLaren | Bahrain Grand Prix | 2022 | 1 | 12 | 60 | 0.0006 | 15 | Ranking: ❌
 12 | Kevin Magnussen | Haas | Bahrain Grand Prix | 2022 | 1 | 13 | 51 | 0.0006 | 5 | Ranking: ✔️ \Points: ❌
