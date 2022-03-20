@@ -51,25 +51,25 @@ Testing Evaluation Measures:
 * Precision (Points) = 7/10
 * Accuracy (Ranking) = 15/20
 
-Predicted Rank | Driver |  Team | Track | Season | Win Probability (%) | Podium Probability (%) | Points Probability (%) | Final Score (0-1) | Actual Rank | Prediction Result 
- --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-1 | Max Verstappen | Red Bull | Bahrain Grand Prix | 2022 | 24 | 23 | 81 | 0.0209 | 💀 | Ranking: ❌ \Points: ❌ Podium: ❌ Winner: ❌
-2 | Charles Leclerc | Ferrari | Bahrain Grand Prix | 2022 | 21 | 25 | 79 | 0.0192 | 1 | Ranking: ✔️ \Points: ✔️ Podium: ✔️ Winner: ❌
-3 | Lewis Hamilton | Mercedes | Bahrain Grand Prix | 2022 | 10 | 16 | 78 | 0.006 | 3 | Ranking: ✔️🎯 \Points: ✔️ Podium: ✔️
-4 | Carlos Sainz Jnr | Ferrari | Bahrain Grand Prix | 2022 | 6 | 23 | 80 | 0.0052 | 2 | Ranking: ✔️ \Points: ✔️ Podium: ❌
-5 | Sergio Perez | Red Bull | Bahrain Grand Prix | 2022 | 3 | 16 | 76 | 0.002 | 💀 | Ranking: ❌ \Points: ❌
-6 | George Russell | Mercedes | Bahrain Grand Prix | 2022 | 3 | 14 | 67 | 0.0014 | 4 | Ranking: ✔️ \Points: ✔️
-7 | Valtteri Bottas | Alfa Romeo | Bahrain Grand Prix | 2022 | 2 | 13 | 64 | 0.0011 | 6 | Ranking: ✔️ \Points: ✔️
-8 | Fernando Alonso | Alpine | Bahrain Grand Prix | 2022 | 2 | 13 | 68 | 0.001 | 9 | Ranking: ❌ \Points: ✔️
-9 | Pierre Gasly | AlphaTauri | Bahrain Grand Prix | 2022 | 2 | 13 | 63 | 0.0008 | 💀 | Ranking: ❌ \Points: ❌
-10 | Esteban Ocon | Alpine | Bahrain Grand Prix | 2022 | 1 | 12 | 69 | 0.0008 | 7 | Ranking: ✔️ \Points: ✔️
-11 | Lando Norris | McLaren | Bahrain Grand Prix | 2022 | 1 | 12 | 60 | 0.0006 | 15 | Ranking: ❌
-12 | Kevin Magnussen | Haas | Bahrain Grand Prix | 2022 | 1 | 13 | 51 | 0.0006 | 5 | Ranking: ✔️ \Points: ❌
-13 | Yuki Tsunoda | AlphaTauri | Bahrain Grand Prix | 2022 | 2 | 13 | 26 | 0.0004 | 8 | Ranking: ✔️ \Points: ❌
-14 | Lance Stroll | Aston Martin | Bahrain Grand Prix | 2022 | 2 | 12 | 26 | 0.0003 | 12 | Ranking: ✔️
-15 | Mick Schumacher | Haas | Bahrain Grand Prix | 2022 | 1 | 12 | 27 | 0.0003 | 11 | Ranking: ✔️
-16 | Daniel Ricciardo | McLaren | Bahrain Grand Prix | 2022 | 1 | 12 | 20 | 0.0002 | 14 | Ranking: ✔️
-17 | Guanyu ZhouGuanyu Z | Alfa Romeo | Bahrain Grand Prix | 2022 | 1 | 12 | 16 | 0.0002 | 10 | Ranking: ✔️ \Points: ❌
-18 | Alexander Albon | Williams | Bahrain Grand Prix | 2022 | 1 | 12 | 15 | 0.0002 | 13 | Ranking: ✔️
-19 | Nico Hulkenberg | Aston Martin | Bahrain Grand Prix | 2022 | 1 | 12 | 15 | 0.0002 | 17 | Ranking: ✔️
-20 | Nicholas Latifi | Williams | Bahrain Grand Prix | 2022 | 1 | 12 | 7 | 0.0001 | 16 | Ranking: ✔️
+Predicted Rank | Driver |  Team | Win Probability (%) | Podium Probability (%) | Points Probability (%) | Final Score (0-1) | Actual Rank | Prediction Result 
+ --- | --- | --- | --- | --- | --- | --- | --- | --- 
+1 | Max Verstappen | Red Bull | 24 | 23 | 81 | 0.0209 | 💀 | Ranking: ❌ \Points: ❌ Podium: ❌ Winner: ❌
+2 | Charles Leclerc | Ferrari | 21 | 25 | 79 | 0.0192 | 1 | Ranking: ✔️ \Points: ✔️ Podium: ✔️ Winner: ❌
+3 | Lewis Hamilton | Mercedes | 10 | 16 | 78 | 0.006 | 3 | Ranking: ✔️🎯 \Points: ✔️ Podium: ✔️
+4 | Carlos Sainz Jnr | Ferrari | 6 | 23 | 80 | 0.0052 | 2 | Ranking: ✔️ \Points: ✔️ Podium: ❌
+5 | Sergio Perez | Red Bull | 3 | 16 | 76 | 0.002 | 💀 | Ranking: ❌ \Points: ❌
+6 | George Russell | Mercedes |  3 | 14 | 67 | 0.0014 | 4 | Ranking: ✔️ \Points: ✔️
+7 | Valtteri Bottas | Alfa Romeo | 2 | 13 | 64 | 0.0011 | 6 | Ranking: ✔️ \Points: ✔️
+8 | Fernando Alonso | Alpine | 2 | 13 | 68 | 0.001 | 9 | Ranking: ❌ \Points: ✔️
+9 | Pierre Gasly | AlphaTauri | 2 | 13 | 63 | 0.0008 | 💀 | Ranking: ❌ \Points: ❌
+10 | Esteban Ocon | Alpine | 1 | 12 | 69 | 0.0008 | 7 | Ranking: ✔️ \Points: ✔️
+11 | Lando Norris | McLaren | 1 | 12 | 60 | 0.0006 | 15 | Ranking: ❌
+12 | Kevin Magnussen | Haas | 1 | 13 | 51 | 0.0006 | 5 | Ranking: ✔️ \Points: ❌
+13 | Yuki Tsunoda | AlphaTauri | 2 | 13 | 26 | 0.0004 | 8 | Ranking: ✔️ \Points: ❌
+14 | Lance Stroll | Aston Martin | 2 | 12 | 26 | 0.0003 | 12 | Ranking: ✔️
+15 | Mick Schumacher | Haas | 1 | 12 | 27 | 0.0003 | 11 | Ranking: ✔️
+16 | Daniel Ricciardo | McLaren |  1 | 12 | 20 | 0.0002 | 14 | Ranking: ✔️
+17 | Guanyu ZhouGuanyu Z | Alfa Romeo | 1 | 12 | 16 | 0.0002 | 10 | Ranking: ✔️ \Points: ❌
+18 | Alexander Albon | Williams | 1 | 12 | 15 | 0.0002 | 13 | Ranking: ✔️
+19 | Nico Hulkenberg | Aston Martin | 1 | 12 | 15 | 0.0002 | 17 | Ranking: ✔️
+20 | Nicholas Latifi | Williams | 1 | 12 | 7 | 0.0001 | 16 | Ranking: ✔️
