@@ -46,7 +46,7 @@ Testing Evaluation Measures:
 # 2022 Season Predictions
 ## [Date: 19/03/2022] - Prediction 1 - 2022 Bahrain Grand Prix
 
-* Precision (Winner) = 0
+* Precision (Winner) = 0/1
 * Precision (Podium) = 2/3
 * Precision (Points) = 7/10
 
