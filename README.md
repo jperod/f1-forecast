@@ -49,7 +49,7 @@ Testing Evaluation Measures:
 Predicted Rank | Driver |  Team | Track | Season | Win Probability (%) | Podium Probability (%) | Points Probability (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 1 | Max Verstappen | Red Bull | Bahrain Grand Prix | 2022 | 24 | 23 | 81 | 0.0209 | - | Ranking: ❌ Podium: ❌ Winner: ❌
-2 | Charles Leclerc | Ferrari | Bahrain Grand Prix | 2022 | 21 | 25 | 79 | 0.0192 | 1 | Ranking: ✔️ Podium: ✔️
+2 | Charles Leclerc | Ferrari | Bahrain Grand Prix | 2022 | 21 | 25 | 79 | 0.0192 | 1 | Ranking: ✔️ Podium: ✔️ Winner: ❌
 3 | Lewis Hamilton | Mercedes | Bahrain Grand Prix | 2022 | 10 | 16 | 78 | 0.006 | 3 | Ranking: ✔️🎯 Podium: ✔️
 4 | Carlos Sainz Jnr | Ferrari | Bahrain Grand Prix | 2022 | 6 | 23 | 80 | 0.0052 | 2 | Ranking: ✔️ Podium: ❌
 5 | Sergio Perez | Red Bull | Bahrain Grand Prix | 2022 | 3 | 16 | 76 | 0.002 | - | Ranking: ❌
