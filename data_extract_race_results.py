@@ -169,10 +169,11 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
                                     columns=["Rank", "Driver", "Team", "Grid", "Pits", "Fastest Lap", "Race Time", "track", "PointsPts", "date", "results_type", "IsFastestLap", "IsPodium", "RaceTimeDiff_s", ])
                                 print("This race did not happen yet: ("+grand_prix+") filling this data with <FUTURE_DATA> data tag for deployment ")
 
-                                if data_qualifying[0].shape[0] > 0:
-                                    df_future_race = data_qualifying[0]
-                                elif data_practices[0].shape[0] > 0:
-                                    df_future_race = data_practices[0]
+
+                                if data_practices[0].shape[0] > 0:
+                                    df_future_race = data_practices[-1]
+                                elif data_qualifying[0].shape[0] > 0:
+                                    df_future_race = data_qualifying[-1]
                                 else:
                                     print("WARNING - CAN NOT FIND INFO ON THIS FUTURE RACE!!!")
                                     quit()

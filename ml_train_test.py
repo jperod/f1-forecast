@@ -9,15 +9,16 @@ import sklearn
 from sklearn.datasets import make_classification
 from lightgbm import LGBMClassifier
 from flaml import AutoML
+from sklearn.metrics import ndcg_score
 from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, precision_score
 pd.set_option("display.max_columns", 10)
 
 ################# PARAMETERS ###################
-prediction_feature = "Future_Winner"
-# prediction_feature = "Future_Podium"
+# prediction_feature = "Future_Winner"
+prediction_feature = "Future_Podium"
 # prediction_feature = "Future_Points"
 top_n = 10
-time_cross_validation_test_date_start = pd.to_datetime('2021-01-01')
+time_cross_validation_test_date_start = pd.to_datetime('2020-01-01')
 ################################################
 
 print("Predicting : " + prediction_feature)
@@ -44,6 +45,8 @@ list_y_pred_binary = []
 list_y_test = []
 list_accurate_ranks = []
 race_cnt = 1
+list_true_ranking = []
+list_score_ranking = []
 for i, race_date in enumerate(race_dates):
     if race_date >= time_cross_validation_test_date_start and race_date < pd.to_datetime("2022-03-18"):
         #Train Test Split
@@ -88,6 +91,14 @@ for i, race_date in enumerate(race_dates):
         list_accurate_ranks.extend(list(results_here["RankAcc"]))
         rank_acc = round(np.sum(list_accurate_ranks) / len(list_accurate_ranks), 2)
         print("Rank-Accuracy["+str(race_cnt)+"] = " + str(round(rank_acc,2)))
+
+
+        # true_ranking = [[ len(list(results_here["Future_Rank"])) + 1 - l for l in list(results_here["Future_Rank"])]]
+        # list_true_ranking.extend(true_ranking)
+        # score_ranking = [[len(list(results_here.index)) + 1 - l  if list(results_here["Future_Rank"])[int(l-1)] <= l else 0 for l in list(results_here.index)] ]
+        # list_score_ranking.extend(score_ranking)
+        # ndcg = ndcg_score(list_true_ranking, list_score_ranking)
+        # print("Rank-NDCG[" + str(race_cnt) + "] = " + str(round(ndcg, 2)))
 
         acc = accuracy_score(list_y_test, list_y_pred_binary)
         print(prediction_feature+"-Accuracy["+str(race_cnt)+"] = " + str(round(acc,2)))

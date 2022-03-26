@@ -29,10 +29,10 @@ df_ml["Future_Points"] = np.where(df_ml["Future_Rank"] <= 10, 1, 0)
 #Model configuration
 automl_clf = AutoML()
 automl_settings = {
-    "time_budget": 60,  # in seconds
+    "time_budget": 300,  # in seconds
     "metric": 'roc_auc',
     "task": 'classification',
-    "verbose": 0
+    "verbose": -1
     }
 
 
@@ -96,13 +96,13 @@ results_final.index = np.arange(1, len(results_here) + 1)
 
 print(results_final[["Driver", "Team", "winner_prob", "podium_prob", "points_prob", "final_score"]].head(top_n))
 
-print("\nRank | Driver |  Team | Track | Season | Win Probability (%) | Podium Probability (%) | Points Probability (%) | Final Score (0-1) ")
-print(" --- | --- | --- | --- | --- | --- | --- | --- | --- | ")
+print("\nPred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result ")
+print(" --- | --- | --- | --- |  --- | --- | --- | --- | --- | ")
 for idx, row in results_final.iterrows():
 
 
-    print(str(idx) + " | " + str(row["Driver"]) + " | " + str(row["Team"]) + " | " + str(row["track"]) + " | " + str(row["season"]) + " | " + str(row["winner_prob"])
-          + " | " + str(row["podium_prob"]) + " | " + str(row["points_prob"]) + " | " + str(round(row["final_score"], 4)) )
+    print(str(idx) + " | " + str(row["Driver"]) + " | " + str(row["Team"]) + " | " + str(row["winner_prob"])
+          + " | " + str(row["podium_prob"]) + " | " + str(row["points_prob"]) + " | " + str(round(row["final_score"], 4)) + " | " + " | "  )
 
 
 print("END")
