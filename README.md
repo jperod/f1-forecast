@@ -76,30 +76,30 @@ Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | 
 
 ## [Date: 26/03/2022] - Prediction 2 - 2022 Saudi Arabia Grand Prix
 
-* Precision (Winner) = */1
-* Precision (Podium) = */3
+* Precision (Winner) = 0/1
+* Precision (Podium) = 3/3
 * Precision (Points) = */10
 * Accuracy (Ranking) = */20
 
 Pred Rank | Driver |  Team |  Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-1 | Carlos Sainz Jnr | Ferrari | 6 | 61 | 75 | 0.0136 |  | 
-2 | Charles Leclerc | Ferrari | 6 | 57 | 75 | 0.0132 |  | 
-3 | Max Verstappen | Red Bull | 5 | 59 | 75 | 0.0119 |  | 
-4 | Sergio Perez | Red Bull | 6 | 46 | 72 | 0.0095 |  | 
-5 | Valtteri Bottas | Alfa Romeo | 5 | 14 | 63 | 0.002 |  | 
-6 | Fernando Alonso | Alpine | 4 | 8 | 65 | 0.0011 |  | 
-7 | Lewis Hamilton | Mercedes | 5 | 9 | 40 | 0.0009 |  | 
-8 | George Russell | Mercedes | 4 | 6 | 64 | 0.0008 |  | 
-9 | Esteban Ocon | Alpine |  4 | 5 | 68 | 0.0008 |  | 
-10 | Pierre Gasly | AlphaTauri |  4 | 5 | 66 | 0.0007 |  | 
-11 | Yuki Tsunoda | AlphaTauri |  4 | 5 | 54 | 0.0006 |  | 
-12 | Kevin Magnussen | Haas | 4 | 4 | 53 | 0.0004 |  | 
-13 | Lando Norris | McLaren | 4 | 2 | 58 | 0.0002 |  | 
-14 | Daniel Ricciardo | McLaren |4 | 2 | 40 | 0.0002 |  | 
-15 | Guanyu Zhou | Alfa Romeo | 4 | 2 | 28 | 0.0001 |  | 
-16 | Mick Schumacher | Haas |  4 | 2 | 26 | 0.0001 |  | 
-17 | Lance Stroll | Aston Martin | 4 | 2 | 25 | 0.0001 |  | 
-18 | Nico Hulkenberg | Aston Martin |  4 | 2 | 16 | 0.0001 |  | 
-19 | Alexander Albon | Williams |  4 | 2 | 15 | 0.0001 |  | 
-20 | Nicholas Latifi | Williams |  4 | 2 | 12 | 0.0 |  | 
+1 | Carlos Sainz Jnr | Ferrari | 6 | 61 | 75 | 0.0136 | 3 | Ranking: ❌ \Points: ✔️ Podium: ✔️ Winner: ❌
+2 | Charles Leclerc | Ferrari | 6 | 57 | 75 | 0.0132 | 2 | Ranking: 🎯 \Points: ✔️ Podium: ✔️ 
+3 | Max Verstappen | Red Bull | 5 | 59 | 75 | 0.0119 | 1 | Ranking: ✔️ \Points: ✔️ Podium: ✔️ Winner: ❌
+4 | Sergio Perez | Red Bull | 6 | 46 | 72 | 0.0095 | 4 | Ranking: 🎯 \Points: ✔️ 
+5 | Valtteri Bottas | Alfa Romeo | 5 | 14 | 63 | 0.002 | 💀 | Ranking: ❌ \Points: ❌
+6 | Fernando Alonso | Alpine | 4 | 8 | 65 | 0.0011 | 💀 | Ranking: ❌ \Points: ❌
+7 | Lewis Hamilton | Mercedes | 5 | 9 | 40 | 0.0009 | 10 | Ranking: ❌ \Points: ✔️
+8 | George Russell | Mercedes | 4 | 6 | 64 | 0.0008 | 5 | Ranking: ✔️ \Points: ✔️
+9 | Esteban Ocon | Alpine |  4 | 5 | 68 | 0.0008 | 6 | Ranking: ✔️ \Points: ✔️
+10 | Pierre Gasly | AlphaTauri |  4 | 5 | 66 | 0.0007 | 8 | Ranking: ✔️ \Points: ✔️
+11 | Yuki Tsunoda | AlphaTauri |  4 | 5 | 54 | 0.0006 | 💀 | Ranking: ❌
+12 | Kevin Magnussen | Haas | 4 | 4 | 53 | 0.0004 | 9 | Ranking: ✔️ \Points: ❌
+13 | Lando Norris | McLaren | 4 | 2 | 58 | 0.0002 | 7 | Ranking: ✔️ \Points: ❌
+14 | Daniel Ricciardo | McLaren |4 | 2 | 40 | 0.0002 | 💀 | Ranking: ❌
+15 | Guanyu Zhou | Alfa Romeo | 4 | 2 | 28 | 0.0001 | 11 | Ranking: ✔️
+16 | Mick Schumacher | Haas |  4 | 2 | 26 | 0.0001 | 💀 | Ranking: ❌
+17 | Lance Stroll | Aston Martin | 4 | 2 | 25 | 0.0001 | 13 | Ranking: ✔️
+18 | Nico Hulkenberg | Aston Martin |  4 | 2 | 16 | 0.0001 | 12 | Ranking: ✔️
+19 | Alexander Albon | Williams |  4 | 2 | 15 | 0.0001 | 14 | Ranking: ✔️
+20 | Nicholas Latifi | Williams |  4 | 2 | 12 | 0.0 | 💀 | Ranking: ❌
