@@ -78,8 +78,8 @@ Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | 
 
 * Precision (Winner) = 0/1
 * Precision (Podium) = 3/3
-* Precision (Points) = */10
-* Accuracy (Ranking) = */20
+* Precision (Points) = 8/10
+* Accuracy (Ranking) = 12/20
 
 Pred Rank | Driver |  Team |  Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- | --- | --- | --- | --- | --- | 
