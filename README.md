@@ -103,3 +103,34 @@ Pred Rank | Driver |  Team |  Win Prob (%) | Podium Prob (%) | Points Prob (%) |
 18 | Nico Hulkenberg | Aston Martin |  4 | 2 | 16 | 0.0001 | 12 | Ranking: ✔️
 19 | Alexander Albon | Williams |  4 | 2 | 15 | 0.0001 | 14 | Ranking: ✔️
 20 | Nicholas Latifi | Williams |  4 | 2 | 12 | 0.0 | 💀 | Ranking: ❌
+
+## [Date: 09/04/2022] - Prediction 3 - 2022 Australian Grand Prix
+
+* Precision (Winner) = */1
+* Precision (Podium) = */3
+* Precision (Points) = */10
+* Accuracy (Ranking) = */20 (* DC)
+
+
+Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
+ --- | --- | --- | --- |  --- | --- | --- | --- | --- | 
+1 | Max Verstappen | Red Bull | 27 | 61 | 79 | 0.051 |  | 
+2 | Charles Leclerc | Ferrari | 26 | 55 | 82 | 0.0452 |  | 
+3 | Sergio Perez | Red Bull | 25 | 52 | 82 | 0.0419 |  | 
+4 | Carlos Sainz Jnr | Ferrari | 2 | 30 | 80 | 0.0024 |  | 
+5 | Lewis Hamilton | Mercedes | 3 | 13 | 72 | 0.0014 |  | 
+6 | Lando Norris | McLaren | 0 | 18 | 77 | 0.0005 |  | 
+7 | Fernando Alonso | Alpine | 1 | 11 | 66 | 0.0005 |  | 
+8 | Esteban Ocon | Alpine | 2 | 3 | 73 | 0.0002 |  | 
+9 | Daniel Ricciardo | McLaren | 1 | 3 | 66 | 0.0001 |  | 
+10 | George Russell | Mercedes | 0 | 5 | 68 | 0.0001 |  | 
+11 | Valtteri Bottas | Alfa Romeo | 0 | 5 | 48 | 0.0001 |  | 
+12 | Pierre Gasly | AlphaTauri | 0 | 4 | 50 | 0.0001 |  | 
+13 | Lance Stroll | Aston Martin | 0 | 3 | 43 | 0.0001 |  | 
+14 | Yuki Tsunoda | AlphaTauri | 0 | 3 | 35 | 0.0 |  | 
+15 | Sebastian Vettel | Aston Martin | 0 | 5 | 13 | 0.0 |  | 
+16 | Guanyu Zhou | Alfa Romeo | 0 | 3 | 18 | 0.0 |  | 
+17 | Mick Schumacher | Haas | 0 | 3 | 13 | 0.0 |  | 
+18 | Kevin Magnussen | Haas | 0 | 5 | 8 | 0.0 |  | 
+19 | Alexander Albon | Williams | 0 | 3 | 10 | 0.0 |  | 
+20 | Nicholas Latifi | Williams | 0 | 3 | 8 | 0.0 |  | 
