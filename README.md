@@ -165,7 +165,6 @@ Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | 
 18 | Esteban Ocon | Alpine | 1 | 2 | 24 | 0.0 |  | 
 19 | Yuki Tsunoda | AlphaTauri | 1 | 2 | 21 | 0.0 |  | 
 20 | Nicholas Latifi | Williams | 1 | 2 | 7 | 0.0 |  | 
-END
 
-Process finished with exit code 0
+
 
