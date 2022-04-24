@@ -14,7 +14,7 @@ def remove_duplicates_from_col(df, colname):
 data_practices = []
 data_qualifying = []
 data_races = []
-for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
+for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018, 2017]]:
     if year <= '2022':
         url = "https://www.bbc.com/sport/formula1/" + year + "/results"
         while True:
@@ -45,6 +45,7 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
             grand_prix_url_name = grand_prix.lower().replace(" ","-")
             for results_type in ["practice", "qualifying", "race"]:
                 url = "https://www.bbc.com/sport/formula1/"+year+"/"+grand_prix_url_name+"/results/" + results_type
+                time.sleep(0.25)
                 if results_type == "practice":
 
                     while True:
@@ -100,6 +101,19 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
                     data_practices.append(df_gp_loading)
 
                 elif results_type == "qualifying":
+
+
+                    while True:
+                        try:
+                            df_gp_loading = pd.read_html(url)
+                            break
+                        except:
+                            #wait, try again
+                            time.sleep(1)
+                            print("Error - can't read_html")
+                            print(url)
+                            # print("")
+
                     df_gp_loading = pd.read_html(url)
                     n_quals = len(df_gp_loading)
                     assert n_quals <= 2
@@ -139,8 +153,8 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
                                 qualifying_date = grand_prix_date - datetime.timedelta(days=1)
                                 df_gp_loading[p]["date"] = qualifying_date
                                 df_gp_loading[p]["track"] = grand_prix
-    
-    
+
+
                         if n_quals == 2:
                             df_gp_loading_sprint = df_gp_loading[1]
                             df_gp_loading = df_gp_loading[0]
@@ -154,10 +168,24 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
                         else:
                             df_gp_loading = df_gp_loading[0]
                             df_gp_loading["RankSprint"] = -1
-    
+
                         data_qualifying.append(df_gp_loading)
 
                 elif results_type == "race":
+
+
+                    while True:
+                        try:
+                            df_gp_loading = pd.read_html(url)
+                            break
+                        except:
+                            #wait, try again
+                            time.sleep(1)
+                            print("Error - can't read_html")
+                            print(url)
+                            # print("")
+
+                    time.sleep(0.5)
                     df_gp_loading = pd.read_html(url)
                     assert len(df_gp_loading) == 1
                     if df_gp_loading[0].shape[0] > 0:
@@ -192,7 +220,7 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
                                 # print("")
 
                             else:
-                            
+
                                 df_gp_loading[p] = df_gp_loading[p].loc[
                                     df_gp_loading[p]['Rank'].astype(str).str.isdigit(), ["Rank", "Driver", "Team",
                                                                                          "Grid", "Pits",
@@ -213,7 +241,7 @@ for year in [str(n) for n in [2022, 2021, 2020, 2019, 2018]]:
                                 best_time = df_gp_loading[p].loc[0,"Race Time"]
                                 timediffs = pd.Series(np.where(df_gp_loading[p]["Race Time"].str.contains("behind +"), [t.split("behind+")[0]  for t in df_gp_loading[p]["Race Time"]], df_gp_loading[p]["Race Time"]))
                                 timediffs.loc[0] = '0'
-                                timediffs_s = [-1 if "no time" in t else  int(t) for t in [ '100' if 'behind' in t else t for t in [str(int(t.split(".")[0].split(":")[1]) + int(t.split(".")[0].split(":")[0])*60) if ":" in t else t.split(".")[0] for t in timediffs]]]
+                                timediffs_s = [-1 if "no time" in t or "not finish" in t else int(t) for t in [ '100' if 'behind' in t else t for t in [str(int(t.split(".")[0].split(":")[1]) + int(t.split(".")[0].split(":")[0])*60) if ":" in t else t.split(".")[0] for t in timediffs]]]
                                 df_gp_loading[p]["RaceTimeDiff_s"] = timediffs_s
                                 df_gp_loading[p]["date"] = grand_prix_date
                                 df_gp_loading[p]["track"] = grand_prix
