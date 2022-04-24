@@ -49,7 +49,7 @@ Testing Evaluation Measures:
 * Precision (Winner) = 0/1
 * Precision (Podium) = 2/3
 * Precision (Points) = 7/10
-* Accuracy (Ranking) = 15/17 (3 DC)
+* Accuracy (Ranking) = 15/17 (3 DC 💀)
 
 Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- | --- | --- | --- | --- | --- 
@@ -79,7 +79,7 @@ Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | 
 * Precision (Winner) = 0/1
 * Precision (Podium) = 3/3
 * Precision (Points) = 8/10
-* Accuracy (Ranking) = 12/15 (5 DC)
+* Accuracy (Ranking) = 12/15 (5 DC 💀)
 
 Pred Rank | Driver |  Team |  Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- | --- | --- | --- | --- | --- | 
@@ -109,7 +109,7 @@ Pred Rank | Driver |  Team |  Win Prob (%) | Podium Prob (%) | Points Prob (%) |
 * Precision (Winner) = 0/1
 * Precision (Podium) = 2/3
 * Precision (Points) = 7/10
-* Accuracy (Ranking) = 15/17 (3 DC)
+* Accuracy (Ranking) = 15/17 (3 DC 💀)
 
 Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- |  --- | --- | --- | --- | --- | 
@@ -140,7 +140,7 @@ Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | 
 * Precision (Winner) = 1/1
 * Precision (Podium) = 2/3
 * Precision (Points) = 6/10
-* Accuracy (Ranking) = 13/18 (2 DC)
+* Accuracy (Ranking) = 13/18 (2 DC 💀)
 
 
 Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
