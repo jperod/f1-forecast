@@ -49,7 +49,7 @@ Testing Evaluation Measures:
 * Precision (Winner) = 0/1
 * Precision (Podium) = 2/3
 * Precision (Points) = 7/10
-* Accuracy (Ranking) = 15/20 (3 DC)
+* Accuracy (Ranking) = 15/17 (3 DC)
 
 Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- | --- | --- | --- | --- | --- 
@@ -79,7 +79,7 @@ Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | 
 * Precision (Winner) = 0/1
 * Precision (Podium) = 3/3
 * Precision (Points) = 8/10
-* Accuracy (Ranking) = 12/20 (5 DC)
+* Accuracy (Ranking) = 12/15 (5 DC)
 
 Pred Rank | Driver |  Team |  Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- | --- | --- | --- | --- | --- | 
@@ -109,7 +109,7 @@ Pred Rank | Driver |  Team |  Win Prob (%) | Podium Prob (%) | Points Prob (%) |
 * Precision (Winner) = 0/1
 * Precision (Podium) = 2/3
 * Precision (Points) = 7/10
-* Accuracy (Ranking) = 15/20 (3 DC)
+* Accuracy (Ranking) = 15/17 (3 DC)
 
 Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- |  --- | --- | --- | --- | --- | 
@@ -137,34 +137,34 @@ Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | 
 
 ## [Date: 24/04/2022] - Prediction 4 - 2022 Emilia Romagna Grand Prix
 
-* Precision (Winner) = */1
-* Precision (Podium) = */3
-* Precision (Points) = */10
-* Accuracy (Ranking) = */20 (* DC)
+* Precision (Winner) = 1/1
+* Precision (Podium) = 2/3
+* Precision (Points) = 6/10
+* Accuracy (Ranking) = 13/18 (2 DC)
 
 
 Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
  --- | --- | --- | --- |  --- | --- | --- | --- | --- | 
-1 | Max Verstappen | Red Bull | 41 | 61 | 78 | 0.0733 |  | 
-2 | Charles Leclerc | Ferrari | 13 | 73 | 80 | 0.0289 |  | 
-3 | Sergio Perez | Red Bull | 5 | 42 | 69 | 0.0059 |  | 
-4 | Carlos Sainz Jnr | Ferrari | 7 | 24 | 77 | 0.0052 |  | 
-5 | Lando Norris | McLaren | 3 | 26 | 69 | 0.002 |  | 
-6 | Fernando Alonso | Alpine | 2 | 8 | 73 | 0.0007 |  | 
-7 | George Russell | Mercedes | 4 | 9 | 40 | 0.0006 |  | 
-8 | Lewis Hamilton | Mercedes | 2 | 9 | 54 | 0.0005 |  | 
-9 | Kevin Magnussen | Haas | 1 | 9 | 68 | 0.0004 |  | 
-10 | Daniel Ricciardo | McLaren | 1 | 4 | 71 | 0.0002 |  | 
-11 | Valtteri Bottas | Alfa Romeo | 1 | 6 | 57 | 0.0002 |  | 
-12 | Guanyu Zhou | Alfa Romeo | 1 | 3 | 38 | 0.0001 |  | 
-13 | Sebastian Vettel | Aston Martin | 1 | 2 | 42 | 0.0001 |  | 
-14 | Mick Schumacher | Haas | 1 | 3 | 32 | 0.0001 |  | 
-15 | Alexander Albon | Williams | 1 | 2 | 38 | 0.0001 |  | 
-16 | Lance Stroll | Aston Martin | 1 | 2 | 32 | 0.0 |  | 
-17 | Pierre Gasly | AlphaTauri | 1 | 3 | 21 | 0.0 |  | 
-18 | Esteban Ocon | Alpine | 1 | 2 | 24 | 0.0 |  | 
-19 | Yuki Tsunoda | AlphaTauri | 1 | 2 | 21 | 0.0 |  | 
-20 | Nicholas Latifi | Williams | 1 | 2 | 7 | 0.0 |  | 
+1 | Max Verstappen | Red Bull | 41 | 61 | 78 | 0.0733 | 1 | Ranking: 🎯 \Points: ✔️ Podium: ✔️ Winner: ✔️
+2 | Charles Leclerc | Ferrari | 13 | 73 | 80 | 0.0289 | 6 | Ranking: ❌ \Points: ✔️ Podium: ❌
+3 | Sergio Perez | Red Bull | 5 | 42 | 69 | 0.0059 | 2 | Ranking: ✔️ \Points: ✔️ Podium: ✔️
+4 | Carlos Sainz Jnr | Ferrari | 7 | 24 | 77 | 0.0052 | 💀 | Ranking: ❌ \Points: ❌
+5 | Lando Norris | McLaren | 3 | 26 | 69 | 0.002 | 3 | Ranking: ✔️ \Points: ✔️ Podium: ❌
+6 | Fernando Alonso | Alpine | 2 | 8 | 73 | 0.0007 | 💀 | Ranking: ❌ \Points: ❌
+7 | George Russell | Mercedes | 4 | 9 | 40 | 0.0006 | 4 | Ranking: ✔️ \Points: ✔️
+8 | Lewis Hamilton | Mercedes | 2 | 9 | 54 | 0.0005 | 13 | Ranking: ❌ \Points: ❌
+9 | Kevin Magnussen | Haas | 1 | 9 | 68 | 0.0004 | 9 | Ranking: 🎯 \Points: ✔️ 
+10 | Daniel Ricciardo | McLaren | 1 | 4 | 71 | 0.0002 | 18 | Ranking: ❌ \Points: ❌
+11 | Valtteri Bottas | Alfa Romeo | 1 | 6 | 57 | 0.0002 | 5 | Ranking: ✔️ \Points: ❌
+12 | Guanyu Zhou | Alfa Romeo | 1 | 3 | 38 | 0.0001 | 15 | Ranking: ❌
+13 | Sebastian Vettel | Aston Martin | 1 | 2 | 42 | 0.0001 | 8 | Ranking: ✔️ \Points: ❌
+14 | Mick Schumacher | Haas | 1 | 3 | 32 | 0.0001 | 17 | Ranking: ❌
+15 | Alexander Albon | Williams | 1 | 2 | 38 | 0.0001 | 11 | Ranking: ✔️
+16 | Lance Stroll | Aston Martin | 1 | 2 | 32 | 0.0 | 10 | Ranking: ✔️ \Points: ❌
+17 | Pierre Gasly | AlphaTauri | 1 | 3 | 21 | 0.0 | 12 | Ranking: ✔️
+18 | Esteban Ocon | Alpine | 1 | 2 | 24 | 0.0 | 14 | Ranking: ✔️
+19 | Yuki Tsunoda | AlphaTauri | 1 | 2 | 21 | 0.0 | 7 | Ranking: ✔️ \Points: ❌
+20 | Nicholas Latifi | Williams | 1 | 2 | 7 | 0.0 | 16 | Ranking: ✔️
 
 
 
