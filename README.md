@@ -166,5 +166,32 @@ Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | 
 19 | Yuki Tsunoda | AlphaTauri | 1 | 2 | 21 | 0.0 | 7 | Ranking: ✔️ \Points: ❌
 20 | Nicholas Latifi | Williams | 1 | 2 | 7 | 0.0 | 16 | Ranking: ✔️
 
+## [Date: 08/05/2022] - Prediction 5 - 2022 Miami Grand Prix
 
+* Precision (Winner) = */1
+* Precision (Podium) = */3
+* Precision (Points) = */10
+* Accuracy (Ranking) = */* (* DC 💀)
 
+Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
+ --- | --- | --- | --- |  --- | --- | --- | --- | --- | 
+1 | Charles Leclerc | Ferrari | 36 | 66 | 78 | 0.086 |  | 
+2 | Max Verstappen | Red Bull | 26 | 61 | 80 | 0.0576 |  | 
+3 | Sergio Perez | Red Bull | 3 | 54 | 79 | 0.0071 |  | 
+4 | Carlos Sainz Jnr | Ferrari | 3 | 36 | 77 | 0.005 |  | 
+5 | Lewis Hamilton | Mercedes | 4 | 13 | 70 | 0.0019 |  | 
+6 | George Russell | Mercedes | 2 | 9 | 55 | 0.0006 |  | 
+7 | Lando Norris | McLaren | 1 | 8 | 66 | 0.0004 |  | 
+8 | Valtteri Bottas | Alfa Romeo | 1 | 8 | 65 | 0.0003 |  | 
+9 | Fernando Alonso | Alpine | 2 | 3 | 56 | 0.0002 |  | 
+10 | Pierre Gasly | AlphaTauri | 1 | 4 | 60 | 0.0002 |  | 
+11 | Esteban Ocon | Alpine | 1 | 3 | 63 | 0.0001 |  | 
+12 | Daniel Ricciardo | McLaren | 1 | 3 | 46 | 0.0001 |  | 
+13 | Sebastian Vettel | Aston Martin | 1 | 3 | 37 | 0.0001 |  | 
+14 | Lance Stroll | Aston Martin | 1 | 3 | 42 | 0.0001 |  | 
+15 | Yuki Tsunoda | AlphaTauri | 1 | 3 | 39 | 0.0001 |  | 
+16 | Kevin Magnussen | Haas | 1 | 3 | 33 | 0.0001 |  | 
+17 | Alexander Albon | Williams | 1 | 3 | 14 | 0.0 |  | 
+18 | Mick Schumacher | Haas | 1 | 3 | 13 | 0.0 |  | 
+19 | Guanyu Zhou | Alfa Romeo | 1 | 3 | 12 | 0.0 |  | 
+20 | Nicholas Latifi | Williams | 1 | 3 | 4 | 0.0 |  | 
