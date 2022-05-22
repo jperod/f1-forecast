@@ -203,4 +203,28 @@ Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | 
 * Precision (Points) = */10
 * Accuracy (Ranking) = */* (* DC 💀)
 
-
+Pred Rank | Driver |  Team | Win Prob (%) | Podium Prob (%) | Points Prob (%) | Final Score (0-1) | Actual Rank | Prediction Result 
+ --- | --- | --- | --- |  --- | --- | --- | --- | --- | 
+1 | Max Verstappen | Red Bull | 29 | 55 | 75 | 0.0621 |  | 
+2 | Charles Leclerc | Ferrari | 23 | 57 | 75 | 0.0523 |  | 
+3 | Carlos Sainz Jnr | Ferrari | 10 | 57 | 75 | 0.0231 |  | 
+4 | Lewis Hamilton | Mercedes | 8 | 22 | 74 | 0.0068 |  | 
+5 | George Russell | Mercedes | 2 | 34 | 67 | 0.0035 |  | 
+6 | Sergio Perez | Red Bull | 1 | 13 | 68 | 0.0006 |  | 
+7 | Kevin Magnussen | Haas | 1 | 8 | 58 | 0.0004 |  | 
+8 | Juri VipsJuri V | Red Bull | 1 | 8 | 35 | 0.0002 |  | 
+9 | Valtteri Bottas | Alfa Romeo | 1 | 3 | 55 | 0.0001 |  | 
+10 | Daniel Ricciardo | McLaren | 1 | 2 | 47 | 0.0001 |  | 
+11 | Fernando Alonso | Alpine | 1 | 3 | 42 | 0.0001 |  | 
+12 | Esteban Ocon | Alpine | 1 | 2 | 54 | 0.0001 |  | 
+13 | Nyck de VriesNyck de Vr | Williams | 1 | 4 | 29 | 0.0001 |  | 
+14 | Robert Kubica | Alfa Romeo | 1 | 4 | 29 | 0.0001 |  | 
+15 | Sebastian Vettel | Aston Martin | 2 | 2 | 23 | 0.0001 |  | 
+16 | Lando Norris | McLaren | 1 | 2 | 45 | 0.0001 |  | 
+17 | Mick Schumacher | Haas | 1 | 2 | 35 | 0.0001 |  | 
+18 | Yuki Tsunoda | AlphaTauri | 1 | 2 | 33 | 0.0001 |  | 
+19 | Pierre Gasly | AlphaTauri | 1 | 2 | 20 | 0.0 |  | 
+20 | Lance Stroll | Aston Martin | 1 | 2 | 16 | 0.0 |  | 
+21 | Alexander Albon | Williams | 1 | 2 | 13 | 0.0 |  | 
+22 | Guanyu Zhou | Alfa Romeo | 1 | 1 | 13 | 0.0 |  | 
+23 | Nicholas Latifi | Williams | 1 | 2 | 7 | 0.0 |  | 
